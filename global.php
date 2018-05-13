@@ -5,6 +5,7 @@
 	$db_host		= "127.0.0.1";
 
 	$time_limit_reg = 15;
+	$time_limit_ver = 10;
 	$base_path = 'http://localhost/fingerprint-scanner-api/';
 	$main_app_path = 'http://localhost/gym-system/';
 

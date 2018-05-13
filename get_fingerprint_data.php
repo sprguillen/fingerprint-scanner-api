@@ -1,31 +1,9 @@
 <?php 
 
-	function getDeviceBySn($sn) {
-		$sql 	= "SELECT * FROM device WHERE serial_number ='".$sn."'";
-		$result	= mysql_query($sql);
-		$arr 	= array();
-		$i 	= 0;
-
-		while ($row = mysql_fetch_array($result)) {
-
-			$arr[$i] = array(
-				'device_name'	=> $row['device_name'],
-				'sn'		=> $row['serial_number'],
-				'vc'		=> $row['verification_code'],
-				'ac'		=> $row['activation_code'],
-				'vkey'		=> $row['verification_key']
-			);
-
-			$i++;
-
-		}
-
-		return $arr;
-	}
-
 	if (isset($_POST['RegTemp']) && !empty($_POST['RegTemp'])) {
 
 		include 'global.php';
+		include 'function.php';
 
 		$data 		= explode(";",$_POST['RegTemp']);
 		$vStamp 	= $data[0];
