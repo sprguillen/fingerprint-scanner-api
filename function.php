@@ -20,6 +20,26 @@
 		return $arr;
 	}
 
+	function getUserFinger($user_id) {
+		$sql = "SELECT * FROM user_account_finger WHERE user_account_id=" . $user_id;
+		$result = mysql_query($sql);
+		$arr = array();
+		$i = 0;
+
+		while($row = mysql_fetch_array($result)) {
+
+			$arr[$i] = array(
+				"user_account_id" =>$row['user_account_id'],
+				"finger_id"	  	  =>$row['finger_id'],
+				"finger_data" 	  =>$row['finger_data']
+				);
+			$i++;
+
+		}
+
+		return $arr;
+	}
+
 	function getDeviceAcSn($vc) {
 		$sql 	= "SELECT * FROM device WHERE verification_code ='".$vc."'";
 		$result	= mysql_query($sql);
